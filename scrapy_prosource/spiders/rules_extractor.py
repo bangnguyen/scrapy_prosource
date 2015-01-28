@@ -34,7 +34,6 @@ class ProsourceSpider(CrawlSpider):
     def closed(self, reason):
         global driver
         driver = webdriver.PhantomJS(self.phantom_js_path_linux)
-        self.all_urls = self.all_urls[:2]
         for url in self.all_urls:
             driver.get(url)
             self.store_data(url)
